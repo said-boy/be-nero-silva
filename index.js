@@ -12,7 +12,7 @@ const port = process.env.PORT;
 
 app.use(express.json());
 
-app.get("/login", login);
+app.post("/login", login);
 app.post("/register", register);
 
 app.get("/", verifyToken, home);
