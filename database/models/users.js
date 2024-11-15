@@ -1,5 +1,23 @@
 import connection from "../config/database.js";
 
+const getUserById = async (id) => {
+  const sql = "SELECT * FROM users WHERE id = ?";
+  try {
+    const result = await new Promise((resolve, reject) => {
+      connection.query(sql, [id], (error, results) => {
+        if (error) {
+          return reject(error);
+        }
+        resolve(results);
+      });
+    });
+
+    return result[0] || null;
+  } catch (error) {
+    console.error("Terjadi kesalahan dalam getUserById:", error);
+  }
+};
+
 const getUserByUsername = async (username) => {
   const sql = "SELECT * FROM users WHERE username = ?";
   try {
@@ -54,4 +72,4 @@ const createUser = async (username, email, password) => {
   }
 };
 
-export { getUserByUsername, getUserByEmail, createUser };
+export { getUserById, getUserByUsername, getUserByEmail, createUser };

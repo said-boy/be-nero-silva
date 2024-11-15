@@ -5,11 +5,19 @@ import { verify } from "./controller/auth/verify.js";
 import { home } from "./controller/home/index.js";
 import verifyToken from "./middleware/auth.js";
 import dotenv from "dotenv";
+import cors from "cors"
 
 dotenv.config();
 
 const app = express();
 const port = process.env.PORT;
+
+app.use(cors({
+  origin: 'http://localhost:5173', // Replace with your frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true, // Allow credentials like cookies
+}));
 
 app.use(express.json());
 
