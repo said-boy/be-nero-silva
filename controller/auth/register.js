@@ -1,11 +1,10 @@
 import {
-  getUserByUsername,
   getUserByEmail,
   createUser,
 } from "../../database/models/users.js";
 
 export const register = async (req, res) => {
-  const { username, email, password } = req.body;
+  const { fullname, email, password } = req.body;
 
   const userAlreadyRegistered = await getUserByEmail(email);
 
@@ -17,10 +16,10 @@ export const register = async (req, res) => {
     });
   }
 
-  const userCreated = await createUser(username, email, password);
+  const userCreated = await createUser(fullname, email, password);
 
   if (typeof userCreated != "undefined" && userCreated.affectedRows > 0) {
-    const user = await getUserByUsername(username);
+    const user = await getUserByEmail(email);
     return res.status(200).json({
       status: "success",
       message: "register success!",

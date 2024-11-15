@@ -54,11 +54,11 @@ const getUserByEmail = async (email) => {
   }
 };
 
-const createUser = async (username, email, password) => {
-  const sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
+const createUser = async (fullname, email, password) => {
+  const sql = "INSERT INTO users (fullname, email, password) VALUES (?, ?, ?)";
   try {
     const result = await new Promise((resolve, reject) => {
-      connection.query(sql, [username, email, password], (error, results) => {
+      connection.query(sql, [fullname, email, password], (error, results) => {
         if (error) {
           return reject(error);
         }
