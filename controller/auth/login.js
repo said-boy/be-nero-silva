@@ -11,19 +11,15 @@ export const login = async (req, res) => {
       expiresIn: process.env.EXPIRED_JWT_TOKEN,
     });
     return res.status(200).json({
-      data: {
-        status: "success",
-        message: "login success!",
-        token: token,
-      },
+      status: "success",
+      message: "login success!",
+      token: token,
     });
   } else {
     return res.status(401).json({
-      data: {
-        status: "error",
-        message: "login failed!",
-        token: null,
-      },
+      status: "error",
+      message: "login failed!",
+      token: null,
     });
   }
 };

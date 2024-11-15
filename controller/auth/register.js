@@ -11,11 +11,9 @@ export const register = async (req, res) => {
 
   if (userAlreadyRegistered != null) {
     return res.status(400).json({
-      data: {
-        status: "error",
-        message: "email already used!",
-        account: null,
-      },
+      status: "error",
+      message: "email already used!",
+      account: null,
     });
   }
 
@@ -24,23 +22,19 @@ export const register = async (req, res) => {
   if (typeof userCreated != "undefined" && userCreated.affectedRows > 0) {
     const user = await getUserByUsername(username);
     return res.status(200).json({
+      status: "success",
+      message: "register success!",
       data: {
-        status: "success",
-        message: "register success!",
-        account: {
-          id: user.id,
-          username: user.username,
-          email: user.email,
-        },
+        id: user.id,
+        username: user.username,
+        email: user.email,
       },
     });
   } else {
     return res.status(400).json({
-      data: {
-        status: "error",
-        message: "register failed!",
-        account: null,
-      },
+      status: "error",
+      message: "register failed!",
+      data: null,
     });
   }
 };
