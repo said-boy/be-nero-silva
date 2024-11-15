@@ -3,7 +3,6 @@ import { getUserById } from "../../database/models/users.js";
 
 export const verify = async (req, res) => {
   const token = req.header("Authorization");
-  console.log(token);
   if (!token) {
     return res.status(401).json({
       status: "error",
