@@ -18,6 +18,7 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         script: |
+          rm public_html
           git clone https://github.com/said-boy/be-nero-silva.git
           mv be-nero-silva public_html
           cd public_html
