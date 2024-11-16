@@ -1,0 +1,24 @@
+
+name: Deploy static content to cloud using ssh
+
+on:
+  push:
+    branches: ["main"]
+    
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - name: deploy to cloud using ssh
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        script: |
+          cd public_html
+          rm -rf *
+          git clone https://github.com/said-boy/be-nero-silva.git
+          mv be-nero-silva public
