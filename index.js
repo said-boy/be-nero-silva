@@ -2,6 +2,8 @@ import express from "express";
 import { login } from "./controller/auth/login.js";
 import { register } from "./controller/auth/register.js";
 import { verify } from "./controller/auth/verify.js";
+import { plant } from "./controller/farm/plant.js";
+import { plan, getPlanById } from "./controller/farm/plan.js";
 import { home } from "./controller/home/index.js";
 import verifyToken from "./middleware/auth.js";
 import dotenv from "dotenv";
@@ -24,6 +26,10 @@ app.use(express.json());
 app.post("/login", login);
 app.post("/register", register);
 app.post("/verify", verify);
+
+app.get("/plant", plant);
+app.post("/plan", plan);
+app.get("/plan/:id", getPlanById);
 
 app.get("/", verifyToken, home);
 

@@ -12,6 +12,7 @@
   },
   "scripts": {
     "migrate": "node database/init/migrate.js",
+    "seed": "node database/init/seed.js",
     "start": "nodemon index.js"
   },
   "type": "module",
