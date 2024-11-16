@@ -20,6 +20,6 @@ jobs:
         script: |
           cd public_html
           rm -rf *
-          git clone https://github.com/said-boy/be-nero-silva.git .
+          git clone https://github.com/said-boy/be-nero-silva.git
           npm install
           npm run start
