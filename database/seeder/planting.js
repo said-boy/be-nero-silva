@@ -1,5 +1,6 @@
 const seedPlanting = async (db) => {
   const plantingData = [
+    [1, 0, 'Pagi', 'Siapkan media tanam (rockwool/cocopeat) yang lembab. Tempatkan benih sawi di atasnya.'],
     [1, 1, 'Pagi', 'Siapkan media tanam (rockwool/cocopeat) yang lembab. Tempatkan benih sawi di atasnya.'],
     [1, 2, 'Pagi', 'Setiap hari cek kelembaban media tanam, semprot sedikit air jika mengering.'],
     [1, 3, 'Pagi', 'Setiap hari cek kelembaban media tanam, semprot sedikit air jika mengering.'],
@@ -45,6 +46,7 @@ const seedPlanting = async (db) => {
     [1, 43, 'Pagi dan Siang', 'Pantau harian nutrisi, pH, cek wick, dan amati tanda-tanda tanaman siap panen (daun besar dan batang kokoh).'],
     [1, 44, 'Pagi', 'Panen tanaman sawi dengan cara memotong bagian pangkal atau mencabut seluruh tanaman.'],
 
+    [2, 0, "Pagi", "Penyemaian benih: Siapkan benih selada, tanam di rockwool basah, tempatkan di tempat lembab."],
     [2, 1, "Pagi", "Penyemaian benih: Siapkan benih selada, tanam di rockwool basah, tempatkan di tempat lembab."],
     [2, 2, "Pagi", "Pemeliharaan benih: Semprot rockwool dengan air bersih untuk menjaga kelembapannya."],
     [2, 3, "Pagi", "Pemeliharaan benih: Semprot rockwool dengan air bersih untuk menjaga kelembapannya."],
