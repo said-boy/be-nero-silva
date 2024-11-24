@@ -2,6 +2,7 @@ import {
   createPlan,
   getPlanByUserIdPlanIdDate,
   getPlanByUserId,
+  getPlanOnlyByIdUser,
 } from "../../database/models/plan.js";
 import { getPlantsByPlantId } from "../../database/models/plant.js";
 import { getPlantingByPlantId } from "../../database/models/planting.js";
@@ -130,4 +131,14 @@ const getPlanById = async (req, res) => {
   }
 };
 
-export { plan, getPlanById };
+const getAllPlanByUserid = async (req, res) => {
+  const user_id = parseInt(req.params.id, 10);
+  const planByUserId = await getPlanOnlyByIdUser(user_id)
+  return res.status(200).json({
+    status: "success",
+    message: "get plan success!",
+    data: planByUserId,
+  });
+}
+
+export { plan, getPlanById, getAllPlanByUserid };

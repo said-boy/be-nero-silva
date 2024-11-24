@@ -59,4 +59,40 @@ const getPlanByUserId = async (user_id) => {
   }
 };
 
-export { createPlan, getPlanByUserIdPlanIdDate, getPlanByUserId };
+const getPlanById = async (id) => {
+  const sql = "SELECT * FROM plan WHERE id = ?";
+  try {
+    const result = await new Promise((resolve, reject) => {
+      connection.query(sql, [id], (error, results) => {
+        if (error) {
+          return reject(error);
+        }
+        resolve(results);
+      });
+    });
+
+    return result || null;
+  } catch (error) {
+    console.error("Terjadi kesalahan dalam getPlanByUserId:", error);
+  }
+};
+
+const getPlanOnlyByIdUser = async (user_id) => {
+  const sql = "SELECT * FROM plan WHERE user_id = ?";
+  try {
+    const result = await new Promise((resolve, reject) => {
+      connection.query(sql, [user_id], (error, results) => {
+        if (error) {
+          return reject(error);
+        }
+        resolve(results);
+      });
+    });
+
+    return result || null;
+  } catch (error) {
+    console.error("Terjadi kesalahan dalam getPlanByUserId:", error);
+  }
+};
+
+export { createPlan, getPlanByUserIdPlanIdDate, getPlanByUserId, getPlanById, getPlanOnlyByIdUser };
