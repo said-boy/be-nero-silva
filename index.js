@@ -16,12 +16,15 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT;
 
-app.use(cors({
+const corsOptions = {
   origin: process.env.FRONTEND_URL, // Replace with your frontend URL
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true, // Allow credentials like cookies
-}));
+}
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions))
 
 app.use(express.json());
 
