@@ -3,6 +3,7 @@ import users from "../migrations/users.js"; // Pastikan ini merujuk ke file yang
 import plan from "../migrations/plan.js"; // Pastikan ini merujuk ke file yang tepat dan ekstensi .js
 import plant from "../migrations/plant.js"; // Pastikan ini merujuk ke file yang tepat dan ekstensi .js
 import planting from "../migrations/planting.js"; // Pastikan ini merujuk ke file yang tepat dan ekstensi .js
+import logs from "../migrations/logs.js";
 
 const migrate = async () => {
   try {
@@ -11,6 +12,7 @@ const migrate = async () => {
     plant(connection);
     plan(connection);
     planting(connection);
+    logs(connection);
     console.log("Migrasi berhasil.");
   } catch (error) {
     console.error("Terjadi kesalahan dalam migrasi:", error);
